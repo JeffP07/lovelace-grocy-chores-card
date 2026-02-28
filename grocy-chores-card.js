@@ -805,6 +805,8 @@ class GrocyChoresCard extends LitElement {
                 // It's an array, use normal logic
                 userId = this._getUserId();
             }
+        } else if (this.track_chore_as_assigned_user) {
+            userId = item.next_execution_assigned_to_user_id;
         } else {
             userId = this._getUserId();
         }
@@ -1605,6 +1607,7 @@ class GrocyChoresCard extends LitElement {
         this.show_due_date = this.config.show_due_date ?? true;
         this.show_more_info_popup = this.config.show_more_info_popup ?? false;
         this.disable_show_assign_to_me = this.config.disable_show_assign_to_me ?? false;
+        this.track_chore_as_assigned_user = this.config.track_chore_as_assigned_user ?? false;
         if (this.use_icons) {
             this.task_icon = this.config.task_icon || 'mdi:checkbox-blank-outline';
             this.chore_icon = this.config.chore_icon || 'mdi:check-circle-outline';
